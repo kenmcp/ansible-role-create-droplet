@@ -25,4 +25,5 @@
 - name: Wait longer to ensure SSH service is up and running.
   pause:
     seconds: "{{ droplet_extra_wait_time }}"
-  when: droplet_extra_wait_time > 0
+  when: new_droplet.changed and
+        droplet_extra_wait_time > 0
